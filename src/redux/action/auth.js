@@ -68,13 +68,13 @@ export const signInAction = (form, navigation) => dispatch => {
       });
       storeData('userProfile', profile);
       navigation.reset({index: 0, routes: [{name: 'MainApp'}]});
-      showMessage('Register Success', 'success');
+      showMessage('Berhasil Masuk', 'success');
 
       //   console.log('success', res);
     })
     .catch(err => {
       console.log('error', err);
       dispatch(setLoading(false));
-      showMessage(err?.response?.data?.message);
+      showMessage('Email atau Kata Sandi anda salah', 'danger');
     });
 };

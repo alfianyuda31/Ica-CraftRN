@@ -89,24 +89,26 @@ const PastOrders = () => {
   }, []);
 
   return (
-    <View style={{paddingTop: 8, paddingHorizontal: 24}}>
-      {/* import Item List Craft from molecules */}
-      {pastOrders.map(order => {
-        return (
-          <ItemListCraft
-            key={order.id}
-            image={{uri: order.craft.picturePath}}
-            onPress={() => navigation.navigate('OrderDetail', order)}
-            items={order.quantity}
-            price={order.total}
-            type="past-orders"
-            name={order.craft.name}
-            date={order.created_at}
-            status={order.status}
-          />
-        );
-      })}
-    </View>
+    <ScrollView>
+      <View style={{paddingTop: 8, paddingHorizontal: 24}}>
+        {/* import Item List Craft from molecules */}
+        {pastOrders.map(order => {
+          return (
+            <ItemListCraft
+              key={order.id}
+              image={{uri: order.craft.picturePath}}
+              onPress={() => navigation.navigate('OrderDetail', order)}
+              items={order.quantity}
+              price={order.total}
+              type="past-orders"
+              name={order.craft.name}
+              date={order.created_at}
+              status={order.status}
+            />
+          );
+        })}
+      </View>
+    </ScrollView>
   );
 };
 
